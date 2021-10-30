@@ -1,6 +1,5 @@
 const loginwindow = document.querySelector(".login_window");
 const nameInput = document.querySelector("#login_name");
-const body = document.querySelector("body");
 
 let currentLoginWindowLeft = 0;
 let currentLoginWindowTop = 0;
@@ -9,58 +8,66 @@ let beforePositionTop = currentLoginWindowTop;
 
 const HIDDEN_CLASSNAME = "hidden";
 
-window.addEventListener("click", function(click){
-    beforePositionLeft = currentLoginWindowLeft;
-    beforePositionTop = currentLoginWindowTop;
+function mouseClick(clickedPosition) {
+    saveBeforePosition();
     loginwindow.classList.remove(HIDDEN_CLASSNAME);
-    moveLoginwindowToClickPosition(click);
-    
-})
+    moveLoginwindowToClickedPosition(clickedPosition);
+}
 
-nameInput.addEventListener("keypress", function(e){
-    if(e.key === 'Enter'){
-        const userName = nameInput.value;
-        localStorage.setItem("userName", userName);
-        loginwindow.classList.add(HIDDEN_CLASSNAME);
+function whatKeyDown(click){
+    if(click.key === 'Enter'){
+        saveLoginName();
+        hideLoginWindow();
+
         const login_explanation = document.querySelector("#login_explanation");
         login_explanation.innerText = `Hello ${userName}`;
     }
-})
-
-
-function moveLoginwindowToClickPosition(click){    
-    if(isInnerX(click) && isInnerY(click)){
-        currentLoginWindowLeft = beforePositionLeft;
-        currentLoginWindowTop = beforePositionTop
-    }else{
-        setLoginwindowPosition(click);
-        saveLoginwindowPosition(click);
-    }
 }
 
-function isInnerX(click){
+window.addEventListener("click", mouseClick);
+nameInput.addEventListener("keypress", whatKeyDown);
+
+/* --------------------------------------------------------------------------------- */
+function moveLoginwindowToClickedPosition(clickedPosition){ 
+    if(!isInnerX(clickedPosition) || !isInnerY(clickedPosition)){
+        setLoginwindowPosition(clickedPosition);
+        saveLoginwindowPosition(clickedPosition);
+        return;
+    }   
+    saveCurrentPosition();
+}
+
+function saveBeforePosition() {
+    beforePositionLeft = currentLoginWindowLeft;
+    beforePositionTop = currentLoginWindowTop;
+}
+function saveCurrentPosition() {
+    currentLoginWindowLeft = beforePositionLeft;
+    currentLoginWindowTop = beforePositionTop
+}
+
+function isInnerX(clickedPosition){
     const currentLoginWindowRight = currentLoginWindowLeft + 300;
-    if(currentLoginWindowLeft < click.clientX && click.clientX < currentLoginWindowRight){
-        return true;
-    }else{
-        return false;
-    }
+    return currentLoginWindowLeft < clickedPosition.clientX && clickedPosition.clientX < currentLoginWindowRight;
 }
-function isInnerY(click){
+function isInnerY(clickedPosition){
     const currentLoginWindowBottom = currentLoginWindowTop + 150;
-    if(currentLoginWindowTop < click.clientY && click.clientY < currentLoginWindowBottom){
-        return true;
-    }else{
-        return false;
-    }
+    return currentLoginWindowTop < clickedPosition.clientY && clickedPosition.clientY < currentLoginWindowBottom;
 }
 
-function setLoginwindowPosition(click){
-    loginwindow.style.left = click.clientX + 'px';
-    loginwindow.style.top = click.clientY + 'px';
+function setLoginwindowPosition(clickedPosition){
+    loginwindow.style.left = clickedPosition.clientX + 'px';
+    loginwindow.style.top = clickedPosition.clientY + 'px';
+}
+function saveLoginwindowPosition(clickedPosition){
+    currentLoginWindowLeft = clickedPosition.clientX;
+    currentLoginWindowTop = clickedPosition.clientY;
 }
 
-function saveLoginwindowPosition(click){
-    currentLoginWindowLeft = click.clientX;
-    currentLoginWindowTop = click.clientY;
+function saveLoginName() {
+    const userName = nameInput.value;
+    localStorage.setItem("userName", userName);
+}
+function hideLoginWindow(){
+    loginwindow.classList.add(HIDDEN_CLASSNAME);
 }
