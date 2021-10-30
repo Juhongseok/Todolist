@@ -4,17 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/outbox.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
     <h1 id="login_explanation">Click Anywhere To Login</h1>
-    <div class="login_window hidden">
+    <div id="login_window" class="hidden">
         <div id="title">
             What is your name?
         </div>
-        <input type="text" id="login_name" placeholder="Put your name">
+        <input type="text" id="login_name" placeholder="Put your name" autofocus>
     </div>
-    <script src="loginwindow.js"></script>
+
+    <div id="after_login" class="hidden">
+        <div>
+            <b><a href="#" id="log_out">LOG OUT</a></b>
+        </div>
+        <div id="todo_menu_open">
+            <a href="#" id="menu_open">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </a>
+        </div>
+        
+        <div id="todo_nav">
+            <div>
+                <a href='#' class="close_button" id="close_button">X</a>
+            </div>
+            <div>
+                <hr>
+                <h1>TO DO LIST</h1>
+                <hr>
+                <br>
+            </div>
+            <div id="write_todo">
+                <input requiredtype ="text" placeholder="Write a To Do and Press Enter"/>
+            </div>
+            <br>
+            <div id="todo">
+                <h2>TO DO!</h2>
+                <div id="box1"><ul id= "todo-list"></ul></div>
+            </div>
+        </div>
+
+        <div id="clock" class="out_box">
+            <h2 id="date">
+            </h2>
+            <h2 id="time">
+            </h2>
+        </div>
+    </div>
+    <script src="js/loginwindow.js"></script>
+    <script src="js/todoNav.js"></script>
+    <script src="js/randomBackgroundImage.js"></script>
+    <script src="js/clock.js"></script>
 </body>
 </html>

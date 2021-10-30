@@ -1,0 +1,13 @@
+.out_box {
+    color: white;
+    transition-property: background-color, color;
+    transition-duration: 0.7s;
+    transition: transform 0.7s ease-in-out;
+}
+  
+.out_box:hover {
+    color: black;
+    will-change: transform;
+    transform: scale(1.054);
+    background-color: rgba(255, 255, 255, 0.7);
+}
