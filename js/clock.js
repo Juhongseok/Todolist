@@ -9,7 +9,6 @@ function getClock(){
     const date = String(getDay.getDate()).padStart(2, "0");
     const day = getDay.getDay();
 
-    console.log(month);
     const hour = String(getDay.getHours()).padStart(2, "0");
     const minute = String(getDay.getMinutes()).padStart(2, "0");
     const seconds = String(getDay.getSeconds()).padStart(2, "0");

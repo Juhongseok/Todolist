@@ -1,0 +1,14 @@
+#clock{
+    position: fixed;
+    width: 300px;
+    height: 130px;
+    top: 60px;
+    right: 15px;
+    border: white solid 2px;
+    text-align: center;
+    border-radius: 10%;
+}
+#clock> div{
+    font-size: 30px;   
+    font-weight: 700;
+}

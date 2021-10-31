@@ -1,0 +1,13 @@
+#weather_total{
+    position: fixed;
+    width: 300px;
+    height: 130px;
+    border: white solid 2px;
+    top: 670px;
+    right: 15px;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 900;
+    font-size: 30px;
+    border-radius: 10%;
+}

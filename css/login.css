@@ -1,0 +1,47 @@
+body> #login_explanation{
+    color: #fff;
+    opacity: 0.6;
+    position: relative;
+    left: 40%;
+    width: 380px;
+}
+
+body> #login_window{
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    border: black solid;
+    border-radius: 12.5%;
+    background-color: whitesmoke;
+    opacity: 0.4;
+}
+
+body> #login_window> #title{
+    position: relative;
+    top: 30%;
+    left: 18%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+body> #login_window> #login_name{
+    position: relative;
+    top: 30%;
+    left: 20%;
+    background-color: white;
+    opacity: 0.6;
+    margin-top: 10px;
+}
+#log_out{
+    position: fixed;
+    top: 5px;
+    right: 15px;
+    border: 2px solid white;
+    background-color: white;
+    color: black;
+    border-radius: 5%;
+    width: 80px;
+    text-align: center;
+    text-decoration: none;
+    opacity: 0.7;
+}

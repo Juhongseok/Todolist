@@ -2,12 +2,14 @@ const loginwindow = document.querySelector("#login_window");
 const nameInput = document.querySelector("#login_name");
 const afterLogin = document.querySelector("#after_login");
 const logOut = document.querySelector("#log_out");
+
+const HIDDEN_CLASSNAME = "hidden";
+
 let currentLoginWindowLeft = 0;
 let currentLoginWindowTop = 0;
 let beforePositionLeft = currentLoginWindowLeft;
 let beforePositionTop = currentLoginWindowTop;
 let isLogin = false;
-const HIDDEN_CLASSNAME = "hidden";
 
 function mouseClick(clickedPosition) {
     saveBeforePosition();
@@ -18,6 +20,10 @@ function mouseClick(clickedPosition) {
 
 function whatKeyDown(click){
     if(click.key === 'Enter'){
+        if(!checkName()){
+            alert("Check your name!!!");
+            return;
+        }
         const userName = saveLoginName();
         hideLoginWindow();
 
@@ -43,7 +49,6 @@ nameInput.addEventListener("keypress", whatKeyDown);
 
 /* --------------------------------------------------------------------------------- */
 function moveLoginwindowToClickedPosition(clickedPosition){ 
-    console.log("click");
     if(!isInnerX(clickedPosition) || !isInnerY(clickedPosition)){
         setLoginwindowPosition(clickedPosition);
         saveLoginwindowPosition(clickedPosition);
@@ -86,4 +91,11 @@ function saveLoginName() {
 }
 function hideLoginWindow(){
     loginwindow.classList.add(HIDDEN_CLASSNAME);
+}
+
+function checkName(){
+    const oldName = localStorage.getItem("userName");
+    if(oldName === null)
+        return true;
+    return nameInput.value === oldName;
 }

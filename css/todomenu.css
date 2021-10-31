@@ -1,0 +1,81 @@
+#todo_menu_open{
+    position: fixed;
+    top: 5px;
+    left: 4px;
+}
+#todo_menu_open .bar{
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+}
+
+#todo_nav{
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.6;
+    transition: 0.5s ease-in-out;
+    overflow-x: hidden;
+}
+#todo_nav> div> .close_button{
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+    position: relative;
+    padding: 8px 8px 0px 8px;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 450px;
+}
+#todo_nav> div> hr{
+    position: relative;
+}
+#todo_nav> #todo> h2, 
+#todo_nav> div> h1{
+    color: white;
+    text-align: center;
+    position: relative;
+}
+#todo_nav> #write_todo{
+    text-align: center;
+}
+#todo_nav> #write_todo> input{
+    width: 90%;
+    height: 30px;
+    font-size: 20px;
+}
+#todo_nav> #todo> #box1> ul> li> span{
+    margin-left: 5px;
+}
+#todo_nav> #todo> #box1> ul> li> button{
+    background-color: red;
+    float: right;
+    margin-right: 10px;
+}
+#box1{
+    border: 4px white solid;
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
+}
+
+#quotes{
+    border: 4px white solid;
+    width: 90%;
+    height: 85px;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#quotes>h3{
+    color: white;
+    font-size: 15px;
+}
+#quotes>#quote{
+    color: white;
+}

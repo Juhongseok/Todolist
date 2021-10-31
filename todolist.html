@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/outbox.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/todo.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/todomenu.css">
+    <link rel="stylesheet" href="css/clock.css">
+    <link rel="stylesheet" href="css/dday.css">
+    <link rel="stylesheet" href="css/weather.css">
     <title>Document</title>
 </head>
 <body>
@@ -39,13 +45,26 @@
                 <hr>
                 <br>
             </div>
-            <div id="write_todo">
-                <input requiredtype ="text" placeholder="Write a To Do and Press Enter"/>
-            </div>
+
+            <form id="write_todo">
+                <input requiredtype ="text" placeholder="Write a To Do and Press Enter" required/>
+            </form>
             <br>
+
             <div id="todo">
                 <h2>TO DO!</h2>
-                <div id="box1"><ul id= "todo-list"></ul></div>
+                <div id="box1">
+                    <ul id= "todo_list">
+                    </ul>
+                </div>
+            </div>
+            <div id="quotes">
+                <h3>
+                    Today's Quote
+                </h3>
+                <div id="quote">
+                    hello
+                </div>
             </div>
         </div>
 
@@ -55,10 +74,57 @@
             <h2 id="time">
             </h2>
         </div>
+
+        <div id="d-day"class="out_box">
+            <h2>2022 D-day</h2>
+            <div id="calc_box">
+               Choose one
+            </div>
+            <div class="scroll_view">
+                <div id="choosen_box">
+                    <ul class="day_list">
+                        <li>
+                            신정 (01/01)
+                        </li>
+                        <li>
+                            어린이날 (05/05)
+                        </li>
+                        <li>
+                            어버이날 (05/08)
+                        </li>
+                        <li>
+                            현충일 (06/06)
+                        </li>
+                        <li>
+                            개천절 (10/03)
+                        </li>
+                        <li>
+                            크리스마스 (12/25)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="weather_total" class="out_box">
+            <div id="where">
+                none
+            </div>
+            <div id="temperature">
+                none
+            </div>
+            <div id="weather">
+                none
+            </div>
+        </div>
     </div>
     <script src="js/loginwindow.js"></script>
     <script src="js/todoNav.js"></script>
     <script src="js/randomBackgroundImage.js"></script>
     <script src="js/clock.js"></script>
+    <script src="js/saveTodo.js"></script>
+    <script src="js/dday.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/weather.js"></script>
 </body>
 </html>
