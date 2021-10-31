@@ -3,3 +3,6 @@
 todo
   - save todolist
   - D-day, weather
+
+------------------
+finish 21.10.31
